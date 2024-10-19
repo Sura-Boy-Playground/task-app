@@ -1,0 +1,20 @@
+name: task-app
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: database
+    depends_on:
+      - database
+
+  database:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+    volumes:
+      - task-app-data:/var/lib/mysql
+
+volumes:
+    task-app-data:

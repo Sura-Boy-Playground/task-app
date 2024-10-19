@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: mysql
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/task_app?createDatabaseIfNotExist=true
+    hikari:
+      maximum-pool-size: 10
+
+  jpa:
+    database: mysql
+    generate-ddl: true
+    show-sql: true
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+logging:
+  file:
+    name: app.log
